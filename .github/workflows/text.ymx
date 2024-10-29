@@ -1,0 +1,23 @@
+name: python V2rayCollector Script
+
+on:
+  schedule:
+    - cron: '*/720 * * * *'
+  workflow_dispatch:
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send email
+        uses: dawidd6/action-send-mail@v3
+        with:
+           server_address: smtp.office365.com
+           server_port: 587
+           username: ${{secrets.ACCOUNT}}
+           password: ${{secrets.MAIL_PASSWORD}}
+           from: ${{secrets.MAIL_ADDRESS}}
+           to: mwguf6h3w@nine.testrun.org
+           subject: Github Actions job result.
+           body: thks o p
