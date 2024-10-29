@@ -26,3 +26,17 @@ jobs:
 
       - name: Run Python script
         run:  python main.py  # Replace with your script's path
+
+      - name: Send email
+        uses: devellany/send-mailer@v1.0.2
+        with:
+           host: smtp.google.com
+           account: ${{secrets.ACCOUNT}}
+           password: ${{secrets.MAIL_PASSWORD}}
+           sender: devellany
+           from: ${{secrets.MAIL_ADDRESS}}
+           to: devellay@dico.me
+           subject: mail title.
+           body: file://README.md
+           contentType: text/html
+           attachments: file://attachmets.json
