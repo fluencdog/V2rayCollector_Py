@@ -28,15 +28,14 @@ jobs:
         run:  python main.py  # Replace with your script's path
 
       - name: Send email
-        uses: devellany/send-mailer@v1.0.2
+        uses: dawidd6/action-send-mail@v3
         with:
            host: smtp.nine.testrun.org
+           server_port: 465
            account: ${{secrets.ACCOUNT}}
            password: ${{secrets.MAIL_PASSWORD}}
-           sender: devellany
            from: ${{secrets.MAIL_ADDRESS}}
            to: mwguf6h3w@nine.testrun.org
-           subject: mail title.
+           subject: Github Actions job result.
            body: thks
-           contentType: text/html
-           attachments: file://sub/region_configs.txt
+           attachments: ./sub/region_configs.txt
