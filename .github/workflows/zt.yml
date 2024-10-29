@@ -1,8 +1,6 @@
 name: sendmail rr Script
 
 on:
-  schedule:
-    - cron: '*/720 * * * *'
   workflow_dispatch:
 
 jobs:
